@@ -1,0 +1,199 @@
+@import "tailwindcss";
+
+:root {
+  --bg1: #0a0a12;
+  --bg2: #11111b;
+  --accent: #60a5fa;
+  --accent-2: #93c5fd;
+  --accent-3: #38bdf8;
+  --text: #eef4ff;
+  --muted: #a7b3c6;
+  --card: rgba(255, 255, 255, 0.06);
+  --border: rgba(255, 255, 255, 0.15);
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 24px;
+  --shadow-1: 0 8px 24px rgba(0, 0, 0, 0.35);
+  --shadow-2: 0 10px 40px rgba(0, 0, 0, 0.45);
+  --ease-1: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@theme inline {
+  --color-background: var(--bg1);
+  --color-foreground: var(--text);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  color: var(--text);
+  background-color: var(--bg1);
+  min-height: 100dvh;
+}
+
+a {
+  color: var(--accent-2);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--text);
+}
+
+/* Glass card */
+.glass-card {
+  border: 1px solid var(--border);
+  background: var(--card);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-2);
+}
+
+/* UI card (smaller radius) */
+.ui-card {
+  border: 1px solid var(--border);
+  background: var(--card);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-1);
+}
+
+/* Gradient background */
+.gradient-bg {
+  background:
+    radial-gradient(1000px 700px at -10% -20%, rgba(147, 197, 253, 0.12) 0%, transparent 60%),
+    radial-gradient(800px 600px at 110% 120%, rgba(96, 165, 250, 0.1) 0%, transparent 55%),
+    linear-gradient(180deg, var(--bg1), var(--bg2));
+}
+
+/* Logo mark */
+.logo-mark {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: conic-gradient(
+    from 0deg,
+    var(--accent),
+    var(--accent-2),
+    var(--accent-3),
+    var(--accent)
+  );
+  filter: drop-shadow(0 0 12px rgba(96, 165, 250, 0.45));
+  flex-shrink: 0;
+}
+
+/* Buttons */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  font-size: 15px;
+  text-decoration: none;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  color: #0b1220;
+  box-shadow: 0 8px 24px rgba(96, 165, 250, 0.35);
+  transition:
+    transform 0.15s var(--ease-1),
+    box-shadow 0.2s var(--ease-1);
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 28px rgba(96, 165, 250, 0.45);
+  color: #0b1220;
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+  transition:
+    background 0.15s var(--ease-1),
+    border-color 0.15s var(--ease-1);
+  cursor: pointer;
+}
+
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: var(--accent);
+  color: var(--text);
+}
+
+/* Status chips */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.chip-active {
+  background: rgba(96, 165, 250, 0.15);
+  color: var(--accent-2);
+  border: 1px solid rgba(96, 165, 250, 0.3);
+}
+
+.chip-idle {
+  background: rgba(167, 179, 198, 0.1);
+  color: var(--muted);
+  border: 1px solid rgba(167, 179, 198, 0.2);
+}
+
+.chip-done {
+  background: rgba(52, 211, 153, 0.12);
+  color: #6ee7b7;
+  border: 1px solid rgba(52, 211, 153, 0.25);
+}
+
+.chip-docked {
+  background: rgba(251, 146, 60, 0.1);
+  color: #fdba74;
+  border: 1px solid rgba(251, 146, 60, 0.2);
+}
+
+/* Dot indicator */
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot-active {
+  background: var(--accent);
+  box-shadow: 0 0 6px var(--accent);
+}
+
+.dot-idle {
+  background: var(--muted);
+}
+
+.dot-done {
+  background: #34d399;
+}
